@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Hive</title>
+        <item>
+            <title>0.1.1</title>
+            <pubDate>Fri, 13 Nov 2026 20:55:11 -0300</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.1.1 — automatic updates and a clearer sidebar
+
+From this version on, Hive can update itself, and the sidebar shows at a glance which projects have an agent working.
+
+### New
+
+- **Automatic updates**: Hive checks for new versions once a day after you allow it, and tells you when one is out.
+  You choose whether to install it. You can also check at any time from the Hive menu: the update item sits right below "Sobre o Hive".
+- **Agents at work stand out in the sidebar**: when an agent is working in a project or worktree, the status dot
+  becomes a small animated hexagon and the row gets a soft tint. Agents waiting for you get a tint too.
+
+### Improved
+
+- Status that Hive infers from output (Codex and opencode) is drawn with a dashed hexagon, so it is not mistaken for
+  the exact status reported by Claude Code.
+
+### Known limits
+
+- If you installed 0.1.0, that version cannot update itself: install this one by hand. From here on, updates arrive
+  by themselves.
+- An agent you start by typing its command in a plain shell tab is not tracked yet and shows as idle. Open it from
+  the agent button or the "Abrir em" menu to see its status.
+- Status for Codex and opencode is inferred from their output and can be wrong.
+- The interface is in Portuguese.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.1.1/Hive-0.1.1.dmg" length="11154362" type="application/octet-stream" sparkle:edSignature="jxd+toF4T5kK5DNZvN+OT4ORQ97qhecFQALCwjNrD4xVZ6CLa6tyiU7qYyz2SnwVz2hH+2k6oxv6hKu+2fODDg=="/>
+        </item>
+    </channel>
+</rss>

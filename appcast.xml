@@ -3,6 +3,44 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.1.2</title>
+            <pubDate>Sat, 14 Nov 2026 19:48:52 -0300</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.1.2 — restore a session, back to the same conversation
+
+When an agent ends, you can now go back to the exact conversation it had, not just start a new one.
+
+### New
+
+- **Restore session**: when a Claude Code, Codex or opencode panel ends, or after you quit and reopen Hive, the panel
+  offers a restore button (labelled in Portuguese) next to Reopen. Restore opens the same agent in the same conversation; Reopen still
+  starts a new one. Hive saves only the conversation id the agent uses, never its content.
+- If a conversation can't be restored (for example it was deleted), the panel says so and Reopen becomes the main action.
+
+### Fixed
+
+- Agents installed in common folders such as Homebrew or `~/.local/bin` are found even when the shell started by Hive
+  doesn't have those folders in its PATH.
+
+### Known limits
+
+- Codex only gets a restorable conversation after you send its first prompt. Two Codex panels in the same project, both
+  without a saved conversation, may offer only Reopen until one of them ends.
+- A conversation started in a plain shell tab, or by another agent process in the same folder outside Hive, is not tracked.
+- Restore uses your current organization profile. If the conversation lives in another organization's settings, it fails
+  and Reopen is offered.
+- "Reabrir todas" (reopen all) always starts new conversations.
+- The interface is in Portuguese.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.1.2/Hive-0.1.2.dmg" length="11252630" type="application/octet-stream" sparkle:edSignature="GH00JRcqJ9eGb7hOxTZfBApFPQ6BwTwyZ1AC4lGhBsNMW3YR5kh8Mf7RMKn5cEhUcoAxq9z/kjTPyqMfVYcFAw=="/>
+        </item>
+        <item>
             <title>0.1.1</title>
             <pubDate>Fri, 13 Nov 2026 20:55:11 -0300</pubDate>
             <sparkle:version>2</sparkle:version>

@@ -3,6 +3,70 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.2.0</title>
+            <pubDate>Mon, 16 Nov 2026 20:22:38 -0300</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.2.0 — agents that can hand work to each other (BETA)
+
+Claude Code agents opened by Hive can now ask another agent in the same organization to do a task, and nothing is
+sent until you approve it.
+
+### New
+
+- **Agent delegation (BETA, off by default)**: turn on the agent delegation switch in an organization's profile. Claude
+  Code sessions of that organization that you open from Hive afterwards can list the other Claude Code sessions of the
+  same organization, ask one of them to do a task, send an informational mention, and check the result.
+- **You approve every request**: each task or mention waits until you approve it, edit it and approve, or reject it.
+  Only then does Hive type it into the other agent's terminal, and only when that agent is idle and has no unsent text
+  in its prompt.
+- **Board dos Agentes** (⌥⌘B): a board with the requests by state (waiting for approval, queued, in progress, done,
+  ended). **Requests panel** (⌥⌘P): a side panel that shows what is waiting and lets you send simple requests
+  without leaving the terminal. The sidebar shows which agents have a request waiting.
+
+### Fixed
+
+- The orange "waiting for input" dot no longer appears after an agent has been idle for about a minute. Claude Code
+  sends a reminder notification at that point, and Hive used to read it as the agent needing you.
+
+### Security
+
+- Delegation never crosses organizations, and an organization with the switch off gets no Hive tools in its sessions.
+- Each session gets its own private local channel that only exists while the session is open. Hive does not change
+  your Claude Code settings or the organization's Claude config folder; the Hive tools are added to your own MCP
+  servers, not in place of them.
+- That channel only accepts connections from processes that belong to the session itself, and refuses a second
+  connection, so another agent running on your Mac cannot speak for a session that is not its own.
+- The status signals that Claude Code sends to Hive (working, waiting, finished) are accepted only from the session
+  they name, so another agent on your Mac cannot fake them to push a request into an agent that is not ready.
+- Task text and results are kept in memory by Hive only and are discarded when Hive closes. The database keeps only
+  who asked whom, the state and the dates. Claude Code itself still saves what it receives and what it is asked in its
+  own conversation history on your disk, as it does for anything else you type to it.
+
+### Known limits
+
+- Only Claude Code takes part. Codex and opencode do not. Agents opened outside Hive are not seen.
+- Changing the switch affects only sessions opened afterwards; sessions already open keep working as before.
+- A request can wait in the queue if the other agent is working, has text typed but not sent, or its status is not
+  known yet. Pending requests and their text are lost when Hive closes.
+- Hive knows about unsent text only from what you type, paste or drop into its terminal, and stops counting it after
+  10 minutes without activity. Text that ends up in the prompt another way, or sat there longer, can be sent together
+  with a request.
+- The limit of 3 chained requests is a guard against runaway loops, not a security barrier: your approval of each
+  request is. Turning the switch off does not end delegation in sessions that are already open.
+- The reply to a rejected request only says it was rejected by you; the reason you type is not sent to the agent.
+- Delegation is a beta. Not yet validated: the warning shown when the switch changes, the light system theme, narrow
+  windows, VoiceOver, a very long request in a small window, and a quick double click on Send or Reject.
+- The interface is in Portuguese.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.2.0/Hive-0.2.0.dmg" length="11931646" type="application/octet-stream" sparkle:edSignature="lk7x6Z4J4siIzvSKnbF/C4L4C9DlhGUuUQnXobPH2DIs3fusWwtODpC0qOdtrn2EccaUy/SmlWz2dGvageZzCw=="/>
+        </item>
+        <item>
             <title>0.1.2</title>
             <pubDate>Sat, 14 Nov 2026 19:48:52 -0300</pubDate>
             <sparkle:version>3</sparkle:version>

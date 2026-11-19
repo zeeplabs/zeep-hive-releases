@@ -10,7 +10,7 @@ code{font-family:var(--mono);font-size:.78em;background:var(--comb2);border:1px 
 .nav{position:sticky;top:0;z-index:20;background:rgba(18,14,9,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(58,46,30,.6)}
 .nav .wrap{display:flex;align-items:center;gap:20px;min-height:68px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 22px/1 var(--disp);letter-spacing:-.02em}
-.brand img{width:30px;height:30px;display:block}
+.brand img{width:auto;height:40px;display:block}
 .links{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto;align-items:center}
 .links a{text-decoration:none;color:var(--dry);font-size:15px;font-weight:500;padding:10px 14px;border-radius:10px;min-height:44px;display:inline-flex;align-items:center;transition:color .2s,background .2s}
 .links a:hover{color:var(--wax);background:var(--comb)}
@@ -394,3 +394,5 @@ code.hash{white-space:normal;overflow-wrap:anywhere}
 .dmgcol{display:flex;flex-direction:column;align-items:flex-end;gap:14px;min-width:0}
 .dmgcol .dmg{align-self:stretch}
 .foot .motion{margin-left:8px}
+.footlogo{display:block;border-radius:8px}
+.footlogo img{display:block;height:72px;width:auto}

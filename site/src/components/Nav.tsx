@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import type { Dict, Lang, PageId } from '../i18n/types'
 import { LANG_KEY, otherLang, pathFor } from '../lib/routes'
 import { Icon } from './Icon'
-import logo from '../assets/logo-96.webp'
+import logo1x from '../assets/logo-compact-40.webp'
+import logo2x from '../assets/logo-compact-80.webp'
 
 export function Nav({ t, lang, page }: { t: Dict; lang: Lang; page: PageId }) {
   const [open, setOpen] = useState(false)
@@ -28,8 +29,7 @@ export function Nav({ t, lang, page }: { t: Dict; lang: Lang; page: PageId }) {
     <header className="nav">
       <div className="wrap">
         <a className="brand" href={home}>
-          <img src={logo} alt="" width="30" height="30" />
-          Hive
+          <img src={logo1x} srcSet={`${logo1x} 1x, ${logo2x} 2x`} alt="Hive" width="100" height="40" />
         </a>
         <button
           type="button"

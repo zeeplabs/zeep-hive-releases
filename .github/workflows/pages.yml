@@ -1,0 +1,72 @@
+name: Site and update feed
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'deploy' }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # The installed apps read https://hive.zeeplabs.com.br/appcast.xml: it must ship byte for byte.
+      - name: Add the update feed
+        run: |
+          cp ../appcast.xml ../CNAME ../.nojekyll dist/site/
+          cmp ../appcast.xml dist/site/appcast.xml
+          grep -q '<rss' dist/site/appcast.xml
+
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist/site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Check the live update feed
+        run: |
+          for _ in 1 2 3 4 5 6; do
+            if curl -fsS https://hive.zeeplabs.com.br/appcast.xml | grep -q '<rss'; then exit 0; fi
+            sleep 10
+          done
+          echo "appcast.xml is not being served" >&2
+          exit 1

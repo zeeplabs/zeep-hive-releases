@@ -1,0 +1,35 @@
+{
+  "name": "hive-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "release-data": "node scripts/fetch-release.mjs",
+    "build": "npm run release-data && tsc --noEmit && vite build --outDir dist/client && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/check-dist.mjs",
+    "preview": "vite preview --outDir dist/site --port 4173 --strictPort",
+    "test": "vitest run",
+    "audit": "node scripts/audit.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.2.8",
+    "@fontsource-variable/instrument-sans": "^5.2.6",
+    "@fontsource-variable/martian-mono": "^5.2.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "axe-core": "^4.10.3",
+    "puppeteer-core": "^24.8.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.2"
+  }
+}

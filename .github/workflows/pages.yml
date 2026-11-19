@@ -39,12 +39,12 @@ jobs:
       # The installed apps read https://hive.zeeplabs.com.br/appcast.xml: it must ship byte for byte.
       - name: Add the update feed
         run: |
-          cp ../appcast.xml ../CNAME ../.nojekyll dist/site/
+          cp ../appcast.xml ../CNAME dist/site/
           cmp ../appcast.xml dist/site/appcast.xml
           grep -q '<rss' dist/site/appcast.xml
 
       - if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site/dist/site
 
@@ -60,7 +60,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Check the live update feed
         run: |

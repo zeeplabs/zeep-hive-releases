@@ -15,8 +15,14 @@ export function Footer({ t, lang }: { t: Dict; lang: Lang }) {
         <nav aria-label={t.footer.nav}>
           <a href={pathFor('home', lang)}>{t.footer.home}</a>
           <a href={pathFor('download', lang)}>{t.footer.download}</a>
-          <a href={`${REPO_URL}/releases`}>{t.footer.notes}</a>
-          <a href={`${REPO_URL}/issues`}>{t.footer.issue}</a>
+          <a href={`${REPO_URL}/releases`} target="_blank" rel="noopener noreferrer">
+            {t.footer.notes}
+            <span className="sr-only"> {t.footer.newTab}</span>
+          </a>
+          <a href={`${REPO_URL}/issues`} target="_blank" rel="noopener noreferrer">
+            {t.footer.issue}
+            <span className="sr-only"> {t.footer.newTab}</span>
+          </a>
           <a href={`${pathFor('home', lang)}#privacy`}>{t.footer.privacy}</a>
         </nav>
       </div>

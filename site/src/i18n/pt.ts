@@ -149,6 +149,7 @@ export const pt: Dict = {
     issue: 'Reportar um problema',
     privacy: 'Privacidade',
     home: 'Início',
+    newTab: '(abre em nova aba)',
   },
   download: {
     kicker: 'lançada em {date}',

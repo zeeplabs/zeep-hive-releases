@@ -78,7 +78,7 @@ export interface Dict {
   native: { title: string; lead: string; stack: string[] }
   faq: { title: string; items: { q: string; a: string }[] }
   final: { title: string; cta: string; req: string }
-  footer: { product: string; nav: string; download: string; notes: string; issue: string; privacy: string; home: string }
+  footer: { product: string; nav: string; download: string; notes: string; issue: string; privacy: string; home: string; newTab: string }
   download: {
     kicker: string
     words: string[]

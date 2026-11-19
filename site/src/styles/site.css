@@ -393,3 +393,4 @@ code.hash{white-space:normal;overflow-wrap:anywhere}
 .lp ul.stack{margin-top:28px}
 .dmgcol{display:flex;flex-direction:column;align-items:flex-end;gap:14px;min-width:0}
 .dmgcol .dmg{align-self:stretch}
+.foot .motion{margin-left:8px}

@@ -1,11 +1,13 @@
 import type { Dict, Lang } from '../i18n/types'
 import { pathFor, REPO_URL } from '../lib/routes'
+import { MotionToggle } from './MotionToggle'
 
 export function Footer({ t, lang }: { t: Dict; lang: Lang }) {
   return (
     <footer className="foot">
       <div className="wrap">
         <span>{t.footer.product}</span>
+        <MotionToggle t={t} />
         <nav aria-label={t.footer.nav}>
           <a href={pathFor('home', lang)}>{t.footer.home}</a>
           <a href={pathFor('download', lang)}>{t.footer.download}</a>

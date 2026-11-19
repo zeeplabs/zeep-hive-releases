@@ -20,7 +20,7 @@ CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" npm r
 ## How it is published
 
 `.github/workflows/pages.yml` builds the site on every push to `main` and every release, copies the repository's
-`appcast.xml`, `CNAME` and `.nojekyll` into the artifact (the update feed must keep its URL), deploys to GitHub
+`appcast.xml` and `CNAME` into the artifact (the update feed must keep its URL), deploys to GitHub
 Pages and then checks that the feed is still served. Pull requests only build and test.
 
 ## Content and data

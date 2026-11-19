@@ -149,6 +149,7 @@ export const en: Dict = {
     issue: 'Report a problem',
     privacy: 'Privacy',
     home: 'Home',
+    newTab: '(opens in a new tab)',
   },
   download: {
     kicker: 'released on {date}',

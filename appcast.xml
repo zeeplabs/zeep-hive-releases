@@ -3,6 +3,47 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.3.0</title>
+            <pubDate>Thu, 19 Nov 2026 15:01:09 -0300</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.3.0 — the open pull requests of your project, next to the terminal
+
+The right panel now has a PRs tab that lists the open pull requests of the repository of the project you are looking at.
+
+### New
+
+- **PRs tab** (⌥⌘P): next to "Pedidos", it lists the open pull requests of the project's GitHub repository, grouped by what needs your attention: review requested from you or one of your teams, your own PRs with something pending, the rest, and drafts (collapsed). Each one shows its stage (conflict, CI failed, changes requested, CI running, approved, waiting for review), the checks, how long ago it was updated, and a link that opens it on GitHub.
+- It uses the [GitHub CLI](https://cli.github.com) (`gh`) that you already have signed in. For each organization, Hive uses the `GH_CONFIG_DIR` of its profile; an organization without one uses your machine's default `gh` account, and the tab says so, with a shortcut to set up an account for that organization.
+- The panel is 320 pt wide and is available even when agent delegation is off. In that case the Pedidos tab explains it and takes you to the organization profile.
+- The tab you picked is remembered. When the panel opens with a request waiting for you, it opens on Pedidos.
+
+### Improved
+
+- The window widens to fit the panel when it is too narrow, and gives the width back when you close it.
+
+### Security
+
+- Hive only reads from GitHub: it never creates, comments, approves or merges anything.
+- It asks GitHub only while the PRs tab is on screen, Hive is the active app and its window is visible (about every 60 seconds, every 20 seconds while a check is running). It does not ask with the panel closed, on the Pedidos tab, in the background or with the window minimized.
+- Only the `GH_CONFIG_DIR` of the organization profile reaches `gh`. A `GH_TOKEN` or `GITHUB_TOKEN` in the environment where Hive was opened, and the variables and secrets of the profile, are not passed on. Hive stores no token and keeps the pull request data in memory only.
+- This is the first network traffic Hive starts besides the update check.
+
+### Known limits
+
+- It needs `gh` installed and signed in, and only repositories on github.com are listed.
+- To tell which review requests are for your teams, `gh` needs the `read:org` permission. Without it, requests to teams are shown in their own group, with the command to grant it.
+- If you add an `origin` to a project while Hive is open, the tab notices it after you switch to another project and back.
+- Not yet verified: using the list with VoiceOver and with the keyboard only (Return and Space on a row), two different GitHub accounts side by side, and a missing `gh`. The 50 most recent pull requests are shown.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.3.0/Hive-0.3.0.dmg" length="12380159" type="application/octet-stream" sparkle:edSignature="9vOwOCVM+m4ufThebUK50LxNFIGBFJQGxlAVi2FZ9EYHnqr42ZcZrac+oE0YTggOCsA/00Oh5Ip8msyixi2hCA=="/>
+        </item>
+        <item>
             <title>0.2.0</title>
             <pubDate>Mon, 16 Nov 2026 20:22:38 -0300</pubDate>
             <sparkle:version>4</sparkle:version>
@@ -103,43 +144,6 @@ When an agent ends, you can now go back to the exact conversation it had, not ju
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.1.2/Hive-0.1.2.dmg" length="11252630" type="application/octet-stream" sparkle:edSignature="GH00JRcqJ9eGb7hOxTZfBApFPQ6BwTwyZ1AC4lGhBsNMW3YR5kh8Mf7RMKn5cEhUcoAxq9z/kjTPyqMfVYcFAw=="/>
-        </item>
-        <item>
-            <title>0.1.1</title>
-            <pubDate>Fri, 13 Nov 2026 20:55:11 -0300</pubDate>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.1.1 — automatic updates and a clearer sidebar
-
-From this version on, Hive can update itself, and the sidebar shows at a glance which projects have an agent working.
-
-### New
-
-- **Automatic updates**: Hive checks for new versions once a day after you allow it, and tells you when one is out.
-  You choose whether to install it. You can also check at any time from the Hive menu: the update item sits right below "Sobre o Hive".
-- **Agents at work stand out in the sidebar**: when an agent is working in a project or worktree, the status dot
-  becomes a small animated hexagon and the row gets a soft tint. Agents waiting for you get a tint too.
-
-### Improved
-
-- Status that Hive infers from output (Codex and opencode) is drawn with a dashed hexagon, so it is not mistaken for
-  the exact status reported by Claude Code.
-
-### Known limits
-
-- If you installed 0.1.0, that version cannot update itself: install this one by hand. From here on, updates arrive
-  by themselves.
-- An agent you start by typing its command in a plain shell tab is not tracked yet and shows as idle. Open it from
-  the agent button or the "Abrir em" menu to see its status.
-- Status for Codex and opencode is inferred from their output and can be wrong.
-- The interface is in Portuguese.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.1.1/Hive-0.1.1.dmg" length="11154362" type="application/octet-stream" sparkle:edSignature="jxd+toF4T5kK5DNZvN+OT4ORQ97qhecFQALCwjNrD4xVZ6CLa6tyiU7qYyz2SnwVz2hH+2k6oxv6hKu+2fODDg=="/>
         </item>
     </channel>
 </rss>

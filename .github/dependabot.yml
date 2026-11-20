@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # Majors (TypeScript, Vite, Vitest, @types/node fora do Node 22…) pedem migração: atualizar à mão.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     groups:
       site-minor-and-patch:
         update-types: [minor, patch]

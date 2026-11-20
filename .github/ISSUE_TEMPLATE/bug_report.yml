@@ -1,0 +1,93 @@
+name: Bug report
+description: Something in Hive or on the website does not work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. You can write in English or Portuguese.
+
+        **Never paste tokens, SSH keys, API keys or other secrets.** Check terminal output before pasting it.
+        For a security problem, use [private vulnerability reporting](https://github.com/zeeplabs/zeep-hive-releases/security/advisories/new) instead of this form.
+
+  - type: input
+    id: version
+    attributes:
+      label: Hive version
+      description: Hive menu → About Hive.
+      placeholder: "0.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      description: Apple menu → About This Mac.
+      placeholder: "macOS 15.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Project tree
+        - Terminals, tabs and splits
+        - Agents (Claude Code, Codex, opencode)
+        - Identity per organization
+        - Agent status and notifications
+        - Git worktrees
+        - Import by scan
+        - Resources panel
+        - PRs tab
+        - Agent delegation (beta)
+        - Updates and installation
+        - Website
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, including any error message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open …
+        2. Click …
+        3. See …
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or terminal output (optional)
+      description: Remove tokens, keys and any private data before pasting.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues and this was not reported yet.
+          required: true
+        - label: This report contains no tokens, keys, passwords or other secrets.
+          required: true

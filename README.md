@@ -1,6 +1,9 @@
 <div align="center">
 
-# Hive
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-dark.png">
+  <img src=".github/assets/logo-light.png" alt="Hive by ZeepLabs" width="300">
+</picture>
 
 **A lightweight native Mac app to organize your projects and run AI coding agents in terminals — with a separate identity for each organization.**
 

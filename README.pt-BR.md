@@ -1,6 +1,9 @@
 <div align="center">
 
-# Hive
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-dark.png">
+  <img src=".github/assets/logo-light.png" alt="Hive by ZeepLabs" width="300">
+</picture>
 
 **Um app nativo e leve para Mac que organiza seus projetos e roda agentes de IA de código em terminais — com uma identidade separada para cada organização.**
 
@@ -10,9 +13,9 @@
 
 </div>
 
-<!-- Capturas de tela: coloque as imagens em uma pasta `screenshots/` e referencie aqui, por exemplo:
-![Hive](screenshots/janela-principal.png)
--->
+<p align="center">
+  <img src=".github/assets/screenshot.png" alt="Janela do Hive: a árvore de projetos com as organizações Pessoal e Cliente A, e o Claude Code esperando aprovação para editar o list.ts enquanto o Codex roda em outro projeto" width="900">
+</p>
 
 ## O que é o Hive?
 

@@ -1,6 +1,9 @@
 <div align="center">
 
-# Hive
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/logo-dark.png">
+  <img src=".github/assets/logo-light.png" alt="Hive by ZeepLabs" width="300">
+</picture>
 
 **A lightweight native Mac app to organize your projects and run AI coding agents in terminals — with a separate identity for each organization.**
 
@@ -10,9 +13,9 @@
 
 </div>
 
-<!-- Screenshots: add images to a `screenshots/` folder and reference them here, for example:
-![Hive](screenshots/main-window.png)
--->
+<p align="center">
+  <img src=".github/assets/screenshot.png" alt="Hive window: the project tree with the Pessoal and Cliente A organizations, and Claude Code waiting for approval to edit list.ts while Codex runs in another project" width="900">
+</p>
 
 ## What is Hive?
 

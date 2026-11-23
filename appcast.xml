@@ -3,6 +3,40 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.4.0</title>
+            <pubDate>Mon, 23 Nov 2026 09:21:33 -0300</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.4.0 — English and Portuguese
+
+Hive now speaks English and Portuguese, and you can choose which one in Settings.
+
+### New
+
+- **English and Portuguese.** Hive opens in the first language of your macOS list that it supports (English or Portuguese), and in English when there is none. Menus, windows, alerts, tooltips and accessibility labels are translated.
+- **Language setting.** Settings › General has a Language menu: System (the default), English and Portuguese. A change takes effect after Hive restarts, and Hive offers to restart for you. If terminal sessions are open it asks first, because they are ended and come back as ended sessions, like on any relaunch.
+
+### Improved
+
+- **Heads-up: the default language is now English** for anyone whose macOS language is not Portuguese. If your Mac is in English, Hive opens in English after updating; pick Portuguese in Settings › General to keep it in Portuguese.
+- The messages Hive types into an agent's terminal (the task and mention headers and the instruction to finish) and the readable errors it returns to agents follow the language. Tool names and the rest of the protocol stay in English.
+- Dates, times and numbers follow the app language, and dates use your system region (24-hour clock and day/month on a Mac set to Brazil).
+- A few Portuguese labels were renamed for consistency, for example in terminal splits and in the delegation detail sheet.
+- Git errors and the time of a GitHub rate limit follow the language. What `git` itself prints is shown as it is.
+
+### Known limits
+
+- The language change needs a restart; it is not applied live. No other languages yet.
+- Not yet verified: macOS 14 and 15, a Mac whose system language is English, opening the app from the downloaded disk image right after changing the language, and delegation between real agents in both languages.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.4.0/Hive-0.4.0.dmg" length="12503916" type="application/octet-stream" sparkle:edSignature="6s+7N597in6NobrIOWUzMomHeIktXM/wcMqZgn9dTZINWNtfqgRQ1TQcyralz/RxUWDtT3ccXxj/giSMlOBeBg=="/>
+        </item>
+        <item>
             <title>0.3.0</title>
             <pubDate>Thu, 19 Nov 2026 15:01:09 -0300</pubDate>
             <sparkle:version>5</sparkle:version>
@@ -106,44 +140,6 @@ sent until you approve it.
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.2.0/Hive-0.2.0.dmg" length="11931646" type="application/octet-stream" sparkle:edSignature="lk7x6Z4J4siIzvSKnbF/C4L4C9DlhGUuUQnXobPH2DIs3fusWwtODpC0qOdtrn2EccaUy/SmlWz2dGvageZzCw=="/>
-        </item>
-        <item>
-            <title>0.1.2</title>
-            <pubDate>Sat, 14 Nov 2026 19:48:52 -0300</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.1.2 — restore a session, back to the same conversation
-
-When an agent ends, you can now go back to the exact conversation it had, not just start a new one.
-
-### New
-
-- **Restore session**: when a Claude Code, Codex or opencode panel ends, or after you quit and reopen Hive, the panel
-  offers a restore button (labelled in Portuguese) next to Reopen. Restore opens the same agent in the same conversation; Reopen still
-  starts a new one. Hive saves only the conversation id the agent uses, never its content.
-- If a conversation can't be restored (for example it was deleted), the panel says so and Reopen becomes the main action.
-
-### Fixed
-
-- Agents installed in common folders such as Homebrew or `~/.local/bin` are found even when the shell started by Hive
-  doesn't have those folders in its PATH.
-
-### Known limits
-
-- Codex only gets a restorable conversation after you send its first prompt. Two Codex panels in the same project, both
-  without a saved conversation, may offer only Reopen until one of them ends.
-- A conversation started in a plain shell tab, or by another agent process in the same folder outside Hive, is not tracked.
-- Restore uses your current organization profile. If the conversation lives in another organization's settings, it fails
-  and Reopen is offered.
-- "Reabrir todas" (reopen all) always starts new conversations.
-- The interface is in Portuguese.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.1.2/Hive-0.1.2.dmg" length="11252630" type="application/octet-stream" sparkle:edSignature="GH00JRcqJ9eGb7hOxTZfBApFPQ6BwTwyZ1AC4lGhBsNMW3YR5kh8Mf7RMKn5cEhUcoAxq9z/kjTPyqMfVYcFAw=="/>
         </item>
     </channel>
 </rss>

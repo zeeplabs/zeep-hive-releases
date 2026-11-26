@@ -3,6 +3,52 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.6.0</title>
+            <pubDate>Wed, 25 Nov 2026 21:18:30 -0300</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>0.6.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.6.0 — delegate to projects, and what's new
+
+Agents can now hand work to a whole project, not only to a session that is already open, and Hive tells you what changed after each update.
+
+### New
+
+- **Automatic delegation (experimental, off by default).** In an organization's profile you can turn on "Approve and open sessions automatically". With it on, a Claude Code agent can list the organization's projects and delegate a task or mention to a project. Hive approves it on its own and, if the project has no Claude session, opens one in a separate worktree. Turning it on asks you to confirm the risk, and you can turn it off at any time from the right panel.
+- **Delegated sessions are marked.** Sessions that Hive opened for a delegation show a mark in the tab and in the tree, with the project they came from.
+- **"Needs a session" notification.** If Hive could not open a session for a delegated task, it tells you which project is waiting. A waiting task is dropped after 10 minutes.
+- **What's new.** The first time you open a new version, Hive shows its highlights. You can open it again from Help › What's New in Hive.
+- **Clickable links in the terminal.** Links are underlined when you hover them. Hold ⌘ and click to open one.
+- **Right panel redrawn.** Requests and PRs follow the rest of the app, and the PRs tab shows a loading state while it fetches.
+
+### Improved
+
+- The "default account" notice on the PRs tab is now a card.
+- The requests panel shows when automatic approval is on, with a shortcut to turn it off.
+
+### Fixed
+
+- The Agent Board could hang the app when macOS was set to always show scroll bars.
+
+### Security
+
+- Automatic mode never turns on from an agent or from a command line: only from the organization's profile, after you confirm.
+- Hive never accepts a folder trust prompt for you. A session opened by delegation waits until you answer it in the terminal.
+- Automatic delegation only works inside one organization, and a project from another organization looks the same as one that does not exist.
+
+### Known limits
+
+- When several sessions are opened by delegation at the same time, the first message to a new session may not be confirmed within 10 seconds, and Hive does not resend it. Ask the sending agent again if that happens.
+- Not yet verified: organizations with their own Claude config folder (the trust prompt may appear more often), macOS 14 and 15, and VoiceOver on the new screens.
+- A program running as you on this Mac can change Hive's local settings file, including this option. Turn it on only where you trust the agents you run.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.6.0/Hive-0.6.0.dmg" length="14324002" type="application/octet-stream" sparkle:edSignature="NpK2T6zRTJXcSdd7i7iVZkbDMkmwpf4E8b2tiUVYJ1VPsfsQH5KYFLmRV+yEbRViaZheanOUGihtQFjKqiVbBg=="/>
+        </item>
+        <item>
             <title>0.5.0</title>
             <pubDate>Tue, 24 Nov 2026 09:19:47 -0300</pubDate>
             <sparkle:version>7</sparkle:version>
@@ -76,47 +122,6 @@ Hive now speaks English and Portuguese, and you can choose which one in Settings
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.4.0/Hive-0.4.0.dmg" length="12503916" type="application/octet-stream" sparkle:edSignature="6s+7N597in6NobrIOWUzMomHeIktXM/wcMqZgn9dTZINWNtfqgRQ1TQcyralz/RxUWDtT3ccXxj/giSMlOBeBg=="/>
-        </item>
-        <item>
-            <title>0.3.0</title>
-            <pubDate>Thu, 19 Nov 2026 15:01:09 -0300</pubDate>
-            <sparkle:version>5</sparkle:version>
-            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.3.0 — the open pull requests of your project, next to the terminal
-
-The right panel now has a PRs tab that lists the open pull requests of the repository of the project you are looking at.
-
-### New
-
-- **PRs tab** (⌥⌘P): next to "Pedidos", it lists the open pull requests of the project's GitHub repository, grouped by what needs your attention: review requested from you or one of your teams, your own PRs with something pending, the rest, and drafts (collapsed). Each one shows its stage (conflict, CI failed, changes requested, CI running, approved, waiting for review), the checks, how long ago it was updated, and a link that opens it on GitHub.
-- It uses the [GitHub CLI](https://cli.github.com) (`gh`) that you already have signed in. For each organization, Hive uses the `GH_CONFIG_DIR` of its profile; an organization without one uses your machine's default `gh` account, and the tab says so, with a shortcut to set up an account for that organization.
-- The panel is 320 pt wide and is available even when agent delegation is off. In that case the Pedidos tab explains it and takes you to the organization profile.
-- The tab you picked is remembered. When the panel opens with a request waiting for you, it opens on Pedidos.
-
-### Improved
-
-- The window widens to fit the panel when it is too narrow, and gives the width back when you close it.
-
-### Security
-
-- Hive only reads from GitHub: it never creates, comments, approves or merges anything.
-- It asks GitHub only while the PRs tab is on screen, Hive is the active app and its window is visible (about every 60 seconds, every 20 seconds while a check is running). It does not ask with the panel closed, on the Pedidos tab, in the background or with the window minimized.
-- Only the `GH_CONFIG_DIR` of the organization profile reaches `gh`. A `GH_TOKEN` or `GITHUB_TOKEN` in the environment where Hive was opened, and the variables and secrets of the profile, are not passed on. Hive stores no token and keeps the pull request data in memory only.
-- This is the first network traffic Hive starts besides the update check.
-
-### Known limits
-
-- It needs `gh` installed and signed in, and only repositories on github.com are listed.
-- To tell which review requests are for your teams, `gh` needs the `read:org` permission. Without it, requests to teams are shown in their own group, with the command to grant it.
-- If you add an `origin` to a project while Hive is open, the tab notices it after you switch to another project and back.
-- Not yet verified: using the list with VoiceOver and with the keyboard only (Return and Space on a row), two different GitHub accounts side by side, and a missing `gh`. The 50 most recent pull requests are shown.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.3.0/Hive-0.3.0.dmg" length="12380159" type="application/octet-stream" sparkle:edSignature="9vOwOCVM+m4ufThebUK50LxNFIGBFJQGxlAVi2FZ9EYHnqr42ZcZrac+oE0YTggOCsA/00Oh5Ip8msyixi2hCA=="/>
         </item>
     </channel>
 </rss>

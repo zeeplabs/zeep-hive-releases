@@ -3,6 +3,58 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.7.0</title>
+            <pubDate>Thu, 26 Nov 2026 16:40:58 -0300</pubDate>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>0.7.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.7.0 — agents that test your Mac apps, and a document viewer
+
+Claude Code agents opened by Hive can now open, read and control Mac apps to test them, with your approval for each session. And the files an agent mentions in the terminal now open inside Hive.
+
+### New
+
+- **Computer use (beta, off by default).** Turn on "Computer use by agents" in an organization's profile and Claude Code agents in sessions opened after that can list apps and windows, read a window, click, type, scroll, press keys and check what is on screen. It works in the background when the app allows it, and every action reports whether its effect was confirmed.
+- **Approval per session.** The first time an agent needs the computer, Hive asks you. You choose whether it may use only the app it asked for or any app, and whether it may use the mouse and keyboard in the foreground (off by default). The approval lasts until the session ends. The session tab shows when an agent can use the computer and when it is acting, and Stop takes the approval back at once.
+- **Tests tab.** When an agent runs a test, each step is recorded with a small screenshot, and the right panel's new Tests tab shows the runs of the visible project with their steps and results.
+- **Permissions guide.** Settings shows which macOS permissions computer use needs and opens the right place in System Settings.
+- **Document viewer.** Cmd-click on a file path in the terminal opens the file in a tab of the project. Markdown is shown formatted (headings, lists, task lists, tables, code blocks, quotes, links), JSON and YAML get colors, and other text files are shown as plain text. The tab updates when the agent rewrites the file and shows "removed" if it disappears. Cmd-F searches the document. It is read-only, never loads images or anything from the internet, and never runs a file: only plain text goes to the default app, and everything else goes to your code editor or the Finder.
+- **Code editor.** In Settings › General you can choose VS Code, Cursor, Zed, Sublime Text, Xcode or Nova. Cmd-click on a code file then opens it in that editor, at the cited line when the editor supports it, and the project's context menu gets "Open in <editor>". With no editor chosen, code opens as text in a Hive tab. Hive never hands code to the default app of its extension.
+
+### Improved
+
+- The scroll indicator of the right panel is thinner and follows the light and dark themes, and the sidebar no longer shows one.
+
+### Fixed
+
+- The terminal could stay smaller or larger than its panel after the screen was locked or the window moved to another monitor. It now fits the panel again by itself.
+- Cmd-click on a path at the end of a sentence ("see /repo/spec.md.") failed with "Link blocked" because the final period was taken as part of the path. A path that does not exist now shows a short notice instead of that alert.
+
+### Security
+
+- Hive itself never gets Accessibility or Screen Recording. Those permissions belong to a separate helper app inside Hive, "Hive Computer Use", which only answers Hive. Programs your agents run in the terminal do not inherit them.
+- The Hive that runs the session, System Settings, Keychain Access, password managers, terminals and script runners (Terminal, iTerm2, Script Editor, Automator, Shortcuts and similar), the Apple menu and system shortcuts (quit, log out, lock the screen, force quit) are always blocked, whatever you approve.
+- The agent sees a screenshot only when it asks for one, menus stay collapsed until it opens one, and passwords in secure fields are never read back. What the agent reads from the screen goes to its model provider, and the approval dialog says so.
+- The document viewer opens any file you Cmd-click, but only shows it on your screen: no network request, no execution, files above 5 MB or that are not text are refused.
+- Test screenshots stay on this Mac, in Hive's data folder. They are deleted after 14 days or when they pass 100 MB, and together with their project or organization.
+
+### Known limits
+
+- Tested with native Mac apps and Google Chrome. Safari pages may not show up for the agent; use Chrome for web tests.
+- In Chrome, clicking web content needs the foreground option.
+- Keys sent in the background did not reach the system Open and Save panel of TextEdit in our test; use the foreground option for those panels.
+- Only Claude Code agents opened by Hive can use the computer.
+- Document tabs do not come back after you restart Hive. Opening a file at a line (`file:12`) works only in editors that support it (VS Code and Cursor).
+- Markdown shows tables and code blocks with square corners, and a second paragraph inside a list item is joined to the item.
+- Not yet verified: macOS 14 and 15, Electron apps, the iOS Simulator and VoiceOver on the new screens.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.7.0/Hive-0.7.0.dmg" length="25250868" type="application/octet-stream" sparkle:edSignature="On/s5aG0jABotqTyfOVyP/jv9J6WZCeSsLvpWA68VY4Qr5F04px0O32sCJdVe34ZOnCe1zpsSkSTtofZapmODw=="/>
+        </item>
+        <item>
             <title>0.6.0</title>
             <pubDate>Wed, 25 Nov 2026 21:18:30 -0300</pubDate>
             <sparkle:version>8</sparkle:version>
@@ -88,40 +140,6 @@ Hive has a new visual identity, an opening animation, a short introduction for n
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.5.0/Hive-0.5.0.dmg" length="13916950" type="application/octet-stream" sparkle:edSignature="m24pO7xvczQboiOBv81TUKwj0vWE93s7nnIRAOOJ+/JerNEVyriATTLusT5ynmBiHEcggLG+/ta+1vVkQywrBQ=="/>
-        </item>
-        <item>
-            <title>0.4.0</title>
-            <pubDate>Mon, 23 Nov 2026 09:21:33 -0300</pubDate>
-            <sparkle:version>6</sparkle:version>
-            <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.4.0 — English and Portuguese
-
-Hive now speaks English and Portuguese, and you can choose which one in Settings.
-
-### New
-
-- **English and Portuguese.** Hive opens in the first language of your macOS list that it supports (English or Portuguese), and in English when there is none. Menus, windows, alerts, tooltips and accessibility labels are translated.
-- **Language setting.** Settings › General has a Language menu: System (the default), English and Portuguese. A change takes effect after Hive restarts, and Hive offers to restart for you. If terminal sessions are open it asks first, because they are ended and come back as ended sessions, like on any relaunch.
-
-### Improved
-
-- **Heads-up: the default language is now English** for anyone whose macOS language is not Portuguese. If your Mac is in English, Hive opens in English after updating; pick Portuguese in Settings › General to keep it in Portuguese.
-- The messages Hive types into an agent's terminal (the task and mention headers and the instruction to finish) and the readable errors it returns to agents follow the language. Tool names and the rest of the protocol stay in English.
-- Dates, times and numbers follow the app language, and dates use your system region (24-hour clock and day/month on a Mac set to Brazil).
-- A few Portuguese labels were renamed for consistency, for example in terminal splits and in the delegation detail sheet.
-- Git errors and the time of a GitHub rate limit follow the language. What `git` itself prints is shown as it is.
-
-### Known limits
-
-- The language change needs a restart; it is not applied live. No other languages yet.
-- Not yet verified: macOS 14 and 15, a Mac whose system language is English, opening the app from the downloaded disk image right after changing the language, and delegation between real agents in both languages.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.4.0/Hive-0.4.0.dmg" length="12503916" type="application/octet-stream" sparkle:edSignature="6s+7N597in6NobrIOWUzMomHeIktXM/wcMqZgn9dTZINWNtfqgRQ1TQcyralz/RxUWDtT3ccXxj/giSMlOBeBg=="/>
         </item>
     </channel>
 </rss>

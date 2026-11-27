@@ -26,6 +26,7 @@ export interface Dict {
     live: string
     identity: string
     features: string
+    computerUse: string
     delegation: string
     download: string
     menu: string
@@ -68,6 +69,22 @@ export interface Dict {
     points: Point[]
   }
   features: { title: string; lead: string; beta: string; items: { title: string; body: string }[] }
+  computerUse: {
+    kicker: string
+    title: string
+    lead: string
+    betaNote: string
+    mockLabel: string
+    exampleTag: string
+    dialog: { title: string; body: string; scopeApp: string; scopeAny: string; foreground: string; notice: string; deny: string; allow: string }
+    run: { title: string; meta: string; steps: string[]; verified: string; caption: string }
+    items: { title: string; body: string }[]
+    blockedTitle: string
+    blocked: string[]
+    blockedNote: string
+    limitsTitle: string
+    limits: string[]
+  }
   delegation: {
     kicker: string
     title: string

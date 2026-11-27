@@ -4,6 +4,7 @@ import { Hero } from '../sections/Hero'
 import { LiveDemo } from '../sections/LiveDemo'
 import { Identity } from '../sections/Identity'
 import { Features } from '../sections/Features'
+import { ComputerUse } from '../sections/ComputerUse'
 import { Delegation } from '../sections/Delegation'
 import { Native } from '../sections/Native'
 import { Faq } from '../sections/Faq'
@@ -19,6 +20,7 @@ export function Home({ t, lang }: { t: Dict; lang: Lang }) {
       <LiveDemo t={t} />
       <Identity t={t} />
       <Features t={t} />
+      <ComputerUse t={t} />
       <Delegation t={t} />
       <Native t={t} />
       <Faq t={t} />

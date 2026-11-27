@@ -33,6 +33,10 @@ jobs:
       - run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Public IDs (repository variables, not secrets). Without any of them the site has no cookie box and loads nothing.
+          VITE_GTM_ID: ${{ vars.VITE_GTM_ID }}
+          VITE_GA_ID: ${{ vars.VITE_GA_ID }}
+          VITE_GSC_VERIFICATION: ${{ vars.VITE_GSC_VERIFICATION }}
 
       # The installed apps read https://hive.zeeplabs.com.br/appcast.xml: it must ship byte for byte.
       - name: Add the update feed

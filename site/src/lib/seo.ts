@@ -68,6 +68,8 @@ export function buildHead(route: Route): string {
   const image = `${SITE}/og-${route.lang}.png`
   const tags: string[] = []
   if (route.lang === DEFAULT_LANG && route.page !== 'notFound') tags.push(LANG_REDIRECT)
+  const gsc = import.meta.env.VITE_GSC_VERIFICATION
+  if (gsc) tags.push(`<meta name="google-site-verification" content="${esc(gsc)}">`)
   tags.push(
     `<title>${esc(meta.title)}</title>`,
     `<meta name="description" content="${esc(meta.description)}">`,

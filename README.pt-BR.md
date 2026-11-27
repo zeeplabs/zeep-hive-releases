@@ -47,9 +47,30 @@ O app é **assinado e notarizado pela Apple**. O `SHA-256` de cada arquivo está
 
 ## Atualizações
 
-O Hive **se atualiza sozinho**: quando sai uma versão nova, ele avisa e você escolhe se quer instalar. Na segunda abertura ele pergunta se pode procurar atualizações automaticamente; se você permitir, ele consulta o feed de atualizações deste projeto uma vez por dia, o que revela seu endereço IP e a versão do app ao host (GitHub). Nada além disso é enviado. Toda atualização é conferida com uma assinatura criptográfica antes de ser instalada.
+O Hive **se atualiza sozinho**: quando sai uma versão nova, ele avisa e você escolhe se quer instalar. Na segunda abertura ele pergunta se pode procurar atualizações automaticamente; se você permitir, ele consulta o feed de atualizações deste projeto uma vez por dia, o que revela seu endereço IP e a versão do app ao host (GitHub). Nada além disso é enviado nessa checagem. Toda atualização é conferida com uma assinatura criptográfica antes de ser instalada.
 
-A verificação de atualizações é a única requisição de rede feita pelo próprio Hive. Seus agentes, o git e o que mais você rodar nos terminais se conectam por conta própria, como em qualquer terminal.
+Além da verificação de atualizações, o próprio Hive faz outras duas requisições de rede: a leitura de PRs pelo seu `gh` (só com a aba PRs aberta) e os dados anônimos de instalação descritos abaixo. Seus agentes, o git e o que mais você rodar nos terminais se conectam por conta própria, como em qualquer terminal.
+
+## Dados anônimos de instalação e uso
+
+O Hive envia eventos anônimos por HTTPS ao Zeep Orbit, um serviço da ZeepLabs (`orbit.zeeptecnologia.com.br`), a cada instalação nova, a cada atualização de versão e, no máximo uma vez por dia, quando o app é aberto. **O envio é sempre ativo: não há configuração para desligar.**
+
+**O que é enviado:**
+
+- um identificador aleatório da instalação (um UUID gerado no app, sem relação com pessoa, e-mail, máquina ou conta);
+- o nome do app (`hive`), o tipo do evento (`install`, `update` ou `launch`), a versão e o build do app e, em atualizações, a versão anterior;
+- o sistema operacional (macOS), a versão do macOS e a arquitetura (`arm64` ou `x86_64`);
+- o canal de distribuição e a data e hora do evento.
+
+**O que não é enviado:** nome, e-mail, nome de usuário, hostname, caminhos de arquivos, nomes de organizações, projetos ou worktrees, variáveis de ambiente, conteúdo de terminal, código, tokens e idioma.
+
+**Endereço IP:** o endereço IP da requisição fica guardado só nos logs do servidor, por 30 dias, e não é armazenado junto com os eventos.
+
+**Para quê:** contar instalações, atualizações e as versões e sistemas em uso, para a ZeepLabs decidir sobre releases e suporte.
+
+**Por quanto tempo:** os eventos ficam por 12 meses e depois são apagados ou agregados em contagens, sem o identificador da instalação. Os eventos ficam no Zeep Orbit, hospedado no Brasil (Oracle Cloud, São Paulo).
+
+**Contato:** Zeep Labs, marca de XPass Tecnology (CNPJ 37.818.214/0001-80). Privacidade e encarregado de dados: legal@zeeptecnologia.com.br.
 
 ## Sugestões e bugs
 

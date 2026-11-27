@@ -12,7 +12,7 @@ const axeSource = await readFile(createRequire(import.meta.url).resolve('axe-cor
 const shots = join(root, 'audit-output')
 await mkdir(shots, { recursive: true })
 
-const pages = ['/', '/download/', '/pt/', '/pt/download/', '/404.html']
+const pages = ['/', '/download/', '/privacy/', '/terms/', '/pt/', '/pt/download/', '/pt/privacy/', '/pt/terms/', '/404.html']
 const widths = [360, 768, 1440]
 const server = await preview({ root, preview: { port: 4174, strictPort: true }, build: { outDir: 'dist/site' }, logLevel: 'silent' })
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH, headless: true })
@@ -36,7 +36,7 @@ try {
       const clipped = await tab.evaluate(() => {
         const vw = document.documentElement.clientWidth
         return [...document.querySelectorAll('main *, header *, footer *')]
-          .filter((el) => !el.closest('[aria-hidden="true"], .sr-only, .links:not(.open), .field, .demo, .netbox'))
+          .filter((el) => !el.closest('[aria-hidden="true"], .sr-only, .links:not(.open), .field, .demo'))
           .filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > vw + 1 || r.left < -1) })
           .slice(0, 5)
           .map((el) => `${el.tagName.toLowerCase()}.${[...el.classList].join('.')}`)

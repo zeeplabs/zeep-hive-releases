@@ -3,6 +3,32 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.8.0</title>
+            <pubDate>Fri, 27 Nov 2026 15:03:33 -0300</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>0.8.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.8.0 — usage events and your installation ID
+
+Hive now sends small usage events with a random installation ID, and Settings shows that ID.
+
+### New
+
+- **Usage events.** Hive sends one small event when it is installed, when it is updated and at most once a day when it is opened. It carries only a random installation ID, the app name, the type of event, the Hive version and build, the macOS version, the type of Mac (architecture) and a timestamp. It never carries your name, the name of your computer, folders, organization or project names, terminal content, environment variables or language. The ID is random and does not identify you by itself. Like any server, the registry receives your IP address; the privacy policy says it is kept only in the server logs, for 30 days, and not with the events. There is no switch to turn the events off. The events are sent in the background and never delay Hive: if the network is off or the server refuses them, Hive ignores it and tries again the next time it opens.
+- **Installation ID.** Settings › General shows the random identifier of this installation, with a Copy button that confirms with "Copied". It is the same identifier sent with the usage events, so you can quote it if you ask for those events to be deleted. Settings shows "Not generated yet" until Hive has opened once with this version.
+- **Privacy policy and terms of use.** Settings › General has buttons that open both pages in your browser, in the language of the app.
+
+### Fixed
+
+- The organization profile sheet no longer grows past the Hive window: its content scrolls and Cancel and Save stay visible.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.8.0/Hive-0.8.0.dmg" length="25349775" type="application/octet-stream" sparkle:edSignature="Cp9Ou9VeqxNtKjjJX4H5cHc04kywnjmmoxs7hZqEEXLzbO2l7BfxHezoR3f7T8zLk4BFPpYjRRdDn9S3rvC+Bw=="/>
+        </item>
+        <item>
             <title>0.7.0</title>
             <pubDate>Thu, 26 Nov 2026 16:40:58 -0300</pubDate>
             <sparkle:version>9</sparkle:version>
@@ -99,47 +125,6 @@ Agents can now hand work to a whole project, not only to a session that is alrea
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.6.0/Hive-0.6.0.dmg" length="14324002" type="application/octet-stream" sparkle:edSignature="NpK2T6zRTJXcSdd7i7iVZkbDMkmwpf4E8b2tiUVYJ1VPsfsQH5KYFLmRV+yEbRViaZheanOUGihtQFjKqiVbBg=="/>
-        </item>
-        <item>
-            <title>0.5.0</title>
-            <pubDate>Tue, 24 Nov 2026 09:19:47 -0300</pubDate>
-            <sparkle:version>7</sparkle:version>
-            <sparkle:shortVersionString>0.5.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.5.0 — a new look, a welcome and tips
-
-Hive has a new visual identity, an opening animation, a short introduction for new users and contextual tips.
-
-### New
-
-- **New look, "Favo".** A floating layout with no title bar, rounded cards for the sidebar, terminals and right panel, a honey accent color, and light and dark themes. "Increase contrast" in macOS is respected.
-- **Opening animation.** Hive opens with a short animation (about 1.7 seconds). With "Reduce motion" on, it is a quick fade instead.
-- **Introduction.** The first time you open Hive with no projects, a seven-step introduction shows the tree, terminals, agents, delegation between agents and the main shortcuts. Open it again any time from Help › Show Introduction or Settings › General. If you already have projects, it is not shown.
-- **Tips.** Three short tips appear in context: splitting the workspace, the agent board and dropping files into a terminal. At most one per session, and you can turn them off or see them again in Settings › General.
-- **Agent status cell.** Each agent shows its state in a small hexagon, in the tree and in the tabs.
-- **Resources per pane.** Every terminal pane has its own small resource capsule.
-- **Mascot.** The Hive bee now shows up in empty screens, such as an empty project, the requests panel, the board and the PRs tab.
-- **Remove unavailable worktrees.** Worktrees that git no longer lists can be dropped from the tree in one step.
-- **Sidebar shortcut.** Show or hide the sidebar with ⌃⌘S, or with the icon on its card.
-
-### Improved
-
-- A tab holds at most four panes, in a 2×2 grid, so terminals stay readable.
-- The search field and the right-panel tabs follow the new style, with a clear focus ring.
-- The requests panel always shows its sections, without the "for this session" filter.
-- Window size is kept when you collapse the sidebar.
-- A new Help menu with the introduction and the tips.
-
-### Known limits
-
-- Not yet verified: macOS 14 and 15, VoiceOver on the new screens, and typing or clicking a notification during the opening animation.
-- The introduction and tips are in English and Portuguese only, like the rest of the app.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.5.0/Hive-0.5.0.dmg" length="13916950" type="application/octet-stream" sparkle:edSignature="m24pO7xvczQboiOBv81TUKwj0vWE93s7nnIRAOOJ+/JerNEVyriATTLusT5ynmBiHEcggLG+/ta+1vVkQywrBQ=="/>
         </item>
     </channel>
 </rss>

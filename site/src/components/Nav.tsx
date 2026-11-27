@@ -22,6 +22,7 @@ export function Nav({ t, lang, page }: { t: Dict; lang: Lang; page: PageId }) {
     ['live', t.nav.live],
     ['identity', t.nav.identity],
     ['features', t.nav.features],
+    ['computer-use', t.nav.computerUse],
     ['delegation', t.nav.delegation],
   ]
 

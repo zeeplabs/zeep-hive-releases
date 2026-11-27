@@ -4,7 +4,7 @@ import { Hero } from '../sections/Hero'
 import { LiveDemo } from '../sections/LiveDemo'
 import { Identity } from '../sections/Identity'
 import { Features } from '../sections/Features'
-import { Privacy } from '../sections/Privacy'
+import { Delegation } from '../sections/Delegation'
 import { Native } from '../sections/Native'
 import { Faq } from '../sections/Faq'
 import { HoneyJar } from '../components/HoneyJar'
@@ -19,7 +19,7 @@ export function Home({ t, lang }: { t: Dict; lang: Lang }) {
       <LiveDemo t={t} />
       <Identity t={t} />
       <Features t={t} />
-      <Privacy t={t} />
+      <Delegation t={t} />
       <Native t={t} />
       <Faq t={t} />
       <HoneyJar>

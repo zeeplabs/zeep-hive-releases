@@ -47,9 +47,30 @@ The app is **signed and notarized by Apple**. The `SHA-256` of each file is in t
 
 ## Updates
 
-Hive **updates itself**: when a new version is out, it tells you and you choose whether to install it. On the second launch it asks whether it may check automatically; if you allow it, it checks this project's update feed once a day, which reveals your IP address and the app version to the host (GitHub). Nothing else is sent. Every update is verified with a cryptographic signature before it is installed.
+Hive **updates itself**: when a new version is out, it tells you and you choose whether to install it. On the second launch it asks whether it may check automatically; if you allow it, it checks this project's update feed once a day, which reveals your IP address and the app version to the host (GitHub). Nothing else is sent in that check. Every update is verified with a cryptographic signature before it is installed.
 
-The update check is the only network request Hive itself makes. Your agents, git and anything else you run in the terminals connect on their own, as they would in any terminal.
+Besides the update check, Hive itself makes two other network requests: the read-only PR query through your own `gh` (only while the PRs tab is open) and the anonymous installation data described below. Your agents, git and anything else you run in the terminals connect on their own, as they would in any terminal.
+
+## Anonymous installation and usage data
+
+Hive sends anonymous events over HTTPS to Zeep Orbit, a ZeepLabs service (`orbit.zeeptecnologia.com.br`), on each new install, on each version update and, at most once a day, when the app opens. **This is always active: there is no setting to turn it off.**
+
+**What is sent:**
+
+- a random installation identifier (a UUID generated in the app, unrelated to any person, email, machine or account);
+- the app name (`hive`), the event type (`install`, `update` or `launch`), the app version and build, and the previous version on updates;
+- the operating system (macOS), the macOS version and the architecture (`arm64` or `x86_64`);
+- the distribution channel and the date and time of the event.
+
+**What is not sent:** name, email, username, hostname, file paths, names of organizations, projects or worktrees, environment variables, terminal content, code, tokens and language.
+
+**IP address:** the IP address of the request is kept only in the server logs, for 30 days, and is not stored with the events.
+
+**Why:** to count installs, updates and the versions and systems in use, so ZeepLabs can decide about releases and support.
+
+**How long it is kept:** events are kept for 12 months, then deleted or aggregated into counts without the installation identifier. Events are stored in Zeep Orbit, hosted in Brazil (Oracle Cloud, São Paulo).
+
+**Contact:** Zeep Labs, a brand of XPass Tecnology (CNPJ 37.818.214/0001-80). Privacy and data protection officer: legal@zeeptecnologia.com.br.
 
 ## Feedback and bugs
 

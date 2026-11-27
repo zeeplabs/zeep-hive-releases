@@ -36,7 +36,7 @@ try {
       const clipped = await tab.evaluate(() => {
         const vw = document.documentElement.clientWidth
         return [...document.querySelectorAll('main *, header *, footer *')]
-          .filter((el) => !el.closest('[aria-hidden="true"], .sr-only, .links:not(.open), .field, .demo, .netbox'))
+          .filter((el) => !el.closest('[aria-hidden="true"], .sr-only, .links:not(.open), .field, .demo'))
           .filter((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.right > vw + 1 || r.left < -1) })
           .slice(0, 5)
           .map((el) => `${el.tagName.toLowerCase()}.${[...el.classList].join('.')}`)

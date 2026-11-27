@@ -9,7 +9,7 @@ export function Nav({ t, lang, page }: { t: Dict; lang: Lang; page: PageId }) {
   const [open, setOpen] = useState(false)
   const home = pathFor('home', lang)
   const alt = otherLang(lang)
-  const altHref = page === 'download' ? pathFor('download', alt) : pathFor('home', alt)
+  const altHref = page === 'notFound' ? pathFor('home', alt) : pathFor(page, alt)
 
   useEffect(() => {
     if (!open) return
@@ -22,7 +22,7 @@ export function Nav({ t, lang, page }: { t: Dict; lang: Lang; page: PageId }) {
     ['live', t.nav.live],
     ['identity', t.nav.identity],
     ['features', t.nav.features],
-    ['privacy', t.nav.privacy],
+    ['delegation', t.nav.delegation],
   ]
 
   return (

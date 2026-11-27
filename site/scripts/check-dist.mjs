@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const out = join(root, 'dist/site')
-const files = ['index.html', 'download/index.html', 'pt/index.html', 'pt/download/index.html', '404.html']
+const files = ['index.html', 'download/index.html', 'privacy/index.html', 'terms/index.html', 'pt/index.html', 'pt/download/index.html', 'pt/privacy/index.html', 'pt/terms/index.html', '404.html']
 const errors = []
 const fail = (msg) => errors.push(msg)
 
@@ -51,7 +51,7 @@ for (const f of ['sitemap.xml', 'robots.txt', 'og-pt.png', 'og-en.png', 'favicon
   if (!existsSync(join(out, f))) fail(`${f}: ausente`)
 }
 const sitemap = existsSync(join(out, 'sitemap.xml')) ? await readFile(join(out, 'sitemap.xml'), 'utf8') : ''
-if ((sitemap.match(/<loc>/g) ?? []).length !== 4) fail('sitemap.xml: esperava 4 URLs')
+if ((sitemap.match(/<loc>/g) ?? []).length !== 8) fail('sitemap.xml: esperava 8 URLs')
 
 const release = JSON.parse(await readFile(join(root, 'src/data/release.json'), 'utf8'))
 const ptSrc = await readFile(join(root, 'src/i18n/pt.ts'), 'utf8')

@@ -19,6 +19,10 @@ export const routes: Route[] = [
   { page: 'download', lang: 'en', path: '/download/', file: 'download/index.html' },
   { page: 'home', lang: 'pt', path: '/pt/', file: 'pt/index.html' },
   { page: 'download', lang: 'pt', path: '/pt/download/', file: 'pt/download/index.html' },
+  { page: 'privacy', lang: 'en', path: '/privacy/', file: 'privacy/index.html' },
+  { page: 'terms', lang: 'en', path: '/terms/', file: 'terms/index.html' },
+  { page: 'privacy', lang: 'pt', path: '/pt/privacy/', file: 'pt/privacy/index.html' },
+  { page: 'terms', lang: 'pt', path: '/pt/terms/', file: 'pt/terms/index.html' },
   { page: 'notFound', lang: 'en', path: '/404.html', file: '404.html' },
 ]
 

@@ -1,9 +1,17 @@
 export type Lang = 'pt' | 'en'
-export type PageId = 'home' | 'download' | 'notFound'
+export type PageId = 'home' | 'download' | 'privacy' | 'terms' | 'notFound'
 
 export interface Point {
   b: string
   t: string
+}
+
+export interface LegalDoc {
+  kicker: string
+  title: string
+  updated: string
+  intro: string
+  sections: { title: string; body: string[]; list?: string[] }[]
 }
 
 export interface Dict {
@@ -18,7 +26,7 @@ export interface Dict {
     live: string
     identity: string
     features: string
-    privacy: string
+    delegation: string
     download: string
     menu: string
     langLabel: string
@@ -60,25 +68,28 @@ export interface Dict {
     points: Point[]
   }
   features: { title: string; lead: string; beta: string; items: { title: string; body: string }[] }
-  privacy: {
+  delegation: {
+    kicker: string
     title: string
     lead: string
+    betaNote: string
     diagramLabel: string
-    mac: string
-    macSub: string
-    keychain: string
-    feedTitle: string
-    feedSub: string
-    ghTitle: string
-    ghSub: string
-    blockedTitle: string
-    blockedSub: string
+    agentA: string
+    agentASub: string
+    agentB: string
+    agentBSub: string
+    gateTitle: string
+    gateSub: string
+    autoLabel: string
+    orgLabel: string
     items: { title: string; body: string }[]
   }
+  cookies: { title: string; body: string; policy: string; accept: string; reject: string; manage: string }
+  legal: { updatedLabel: string; privacy: LegalDoc; terms: LegalDoc }
   native: { title: string; lead: string; stack: string[] }
   faq: { title: string; items: { q: string; a: string }[] }
   final: { title: string; cta: string; req: string }
-  footer: { product: string; nav: string; download: string; notes: string; issue: string; privacy: string; home: string; newTab: string }
+  footer: { product: string; nav: string; download: string; notes: string; issue: string; privacy: string; terms: string; home: string; newTab: string }
   download: {
     kicker: string
     words: string[]

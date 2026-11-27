@@ -1,5 +1,7 @@
 import type { Dict, Lang } from '../i18n/types'
 import { pathFor, REPO_URL } from '../lib/routes'
+import { ANALYTICS_ENABLED } from '../lib/analytics'
+import { CONSENT_OPEN_EVENT } from '../lib/consent'
 import { MotionToggle } from './MotionToggle'
 import logo1x from '../assets/logo-full-72.webp'
 import logo2x from '../assets/logo-full-144.webp'
@@ -23,7 +25,13 @@ export function Footer({ t, lang }: { t: Dict; lang: Lang }) {
             {t.footer.issue}
             <span className="sr-only"> {t.footer.newTab}</span>
           </a>
-          <a href={`${pathFor('home', lang)}#privacy`}>{t.footer.privacy}</a>
+          <a href={pathFor('privacy', lang)}>{t.footer.privacy}</a>
+          <a href={pathFor('terms', lang)}>{t.footer.terms}</a>
+          {ANALYTICS_ENABLED && (
+            <button type="button" className="linkbtn" onClick={() => window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))}>
+              {t.cookies.manage}
+            </button>
+          )}
         </nav>
       </div>
     </footer>

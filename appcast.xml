@@ -3,6 +3,43 @@
     <channel>
         <title>Hive</title>
         <item>
+            <title>0.9.0</title>
+            <pubDate>Fri, 27 Nov 2026 22:24:12 -0300</pubDate>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>0.9.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Hive 0.9.0 — agent reminders and the Issues tab
+
+Agents can now schedule reminders that Hive notifies you about and runs only after you confirm, and the right panel gained an Issues tab.
+
+### New
+
+- **Agent reminders.** Claude agents can schedule a reminder ("check the deploy tomorrow") with the `schedule_reminder`, `list_reminders` and `cancel_reminder` tools. The new **Reminders** tab in the right panel lists them with who scheduled each one, when it was created and when it is due. A details sheet shows the full text and lets you run, snooze, dismiss or cancel it. It is off by default: turn on **Agent reminders** in the organization profile.
+- **Notifications that work with Hive closed.** The macOS notification is scheduled when the reminder is created, so it arrives on time even if Hive is not running. Clicking it opens the reminder in Hive. Reminders that fell due while Hive was closed or the Mac was asleep arrive in a single grouped notification.
+- **Nothing runs without you.** Run shows the full text the agent will receive and how it will start: resuming the agent's original conversation when it is still available, or a new session otherwise. If resuming fails, Hive offers a new session instead of retrying on its own.
+- **Issues tab.** The right panel lists the open issues of the project's repository, grouped by what matters to you.
+- **Branches on PR cards.** Each PR card shows the branch it comes from and the one it targets. The right panel tabs now show only icons.
+
+### Improved
+
+- Quitting Hive no longer clears notifications that are scheduled for reminders; it removes only the status notifications of its own sessions.
+
+### Security
+
+- A reminder's text is the one free text Hive saves on your Mac: it stays in the local database, is deleted as soon as the reminder is handled, and is never written to logs. The agents' tool descriptions warn against putting secrets or personal data in it. Notifications show only the title and the agent's name, never the text.
+
+### Known limits
+
+- Reminders are available only for Claude sessions, and only in organizations that turned the switch on.
+- Not validated yet: dark theme and Portuguese on the new screens, VoiceOver, macOS 14, more than 48 pending reminders at once, and changing time zone with Hive closed.
+
+---
+
+*Hive is made by Zeep Labs.*
+]]></description>
+            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.9.0/Hive-0.9.0.dmg" length="26207191" type="application/octet-stream" sparkle:edSignature="r+JGNfz+tSAZwWEBrNCrjb+oNeHfxi31FWVoC3eGUAPnRxJstRbCMiHm68iouNTt0oxDVv8KHIDoYEXB0q9NDg=="/>
+        </item>
+        <item>
             <title>0.8.0</title>
             <pubDate>Fri, 27 Nov 2026 15:03:33 -0300</pubDate>
             <sparkle:version>10</sparkle:version>
@@ -79,52 +116,6 @@ Claude Code agents opened by Hive can now open, read and control Mac apps to tes
 *Hive is made by Zeep Labs.*
 ]]></description>
             <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.7.0/Hive-0.7.0.dmg" length="25250868" type="application/octet-stream" sparkle:edSignature="On/s5aG0jABotqTyfOVyP/jv9J6WZCeSsLvpWA68VY4Qr5F04px0O32sCJdVe34ZOnCe1zpsSkSTtofZapmODw=="/>
-        </item>
-        <item>
-            <title>0.6.0</title>
-            <pubDate>Wed, 25 Nov 2026 21:18:30 -0300</pubDate>
-            <sparkle:version>8</sparkle:version>
-            <sparkle:shortVersionString>0.6.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Hive 0.6.0 — delegate to projects, and what's new
-
-Agents can now hand work to a whole project, not only to a session that is already open, and Hive tells you what changed after each update.
-
-### New
-
-- **Automatic delegation (experimental, off by default).** In an organization's profile you can turn on "Approve and open sessions automatically". With it on, a Claude Code agent can list the organization's projects and delegate a task or mention to a project. Hive approves it on its own and, if the project has no Claude session, opens one in a separate worktree. Turning it on asks you to confirm the risk, and you can turn it off at any time from the right panel.
-- **Delegated sessions are marked.** Sessions that Hive opened for a delegation show a mark in the tab and in the tree, with the project they came from.
-- **"Needs a session" notification.** If Hive could not open a session for a delegated task, it tells you which project is waiting. A waiting task is dropped after 10 minutes.
-- **What's new.** The first time you open a new version, Hive shows its highlights. You can open it again from Help › What's New in Hive.
-- **Clickable links in the terminal.** Links are underlined when you hover them. Hold ⌘ and click to open one.
-- **Right panel redrawn.** Requests and PRs follow the rest of the app, and the PRs tab shows a loading state while it fetches.
-
-### Improved
-
-- The "default account" notice on the PRs tab is now a card.
-- The requests panel shows when automatic approval is on, with a shortcut to turn it off.
-
-### Fixed
-
-- The Agent Board could hang the app when macOS was set to always show scroll bars.
-
-### Security
-
-- Automatic mode never turns on from an agent or from a command line: only from the organization's profile, after you confirm.
-- Hive never accepts a folder trust prompt for you. A session opened by delegation waits until you answer it in the terminal.
-- Automatic delegation only works inside one organization, and a project from another organization looks the same as one that does not exist.
-
-### Known limits
-
-- When several sessions are opened by delegation at the same time, the first message to a new session may not be confirmed within 10 seconds, and Hive does not resend it. Ask the sending agent again if that happens.
-- Not yet verified: organizations with their own Claude config folder (the trust prompt may appear more often), macOS 14 and 15, and VoiceOver on the new screens.
-- A program running as you on this Mac can change Hive's local settings file, including this option. Turn it on only where you trust the agents you run.
-
----
-
-*Hive is made by Zeep Labs.*
-]]></description>
-            <enclosure url="https://github.com/zeeplabs/zeep-hive-releases/releases/download/v0.6.0/Hive-0.6.0.dmg" length="14324002" type="application/octet-stream" sparkle:edSignature="NpK2T6zRTJXcSdd7i7iVZkbDMkmwpf4E8b2tiUVYJ1VPsfsQH5KYFLmRV+yEbRViaZheanOUGihtQFjKqiVbBg=="/>
         </item>
     </channel>
 </rss>
